@@ -122,7 +122,7 @@ This will allow the test suite to skip over it and it will list as 'pending' in 
 
 9. When you are happy with your solutions, make a final commit and push the work to your Github.
 
-10. Once you've completed these problems, <a href='https://nc-precourse-review.herokuapp.com/complete?section=1' target='_blank'> request a review.</a>
+10. Once you've completed these problems, <a href='https://us-central1-precourse-pushes.cloudfunctions.net/reviewme/?section=PRE-1' target='_blank'> request a review.</a>
 
 
 
