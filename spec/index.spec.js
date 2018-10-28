@@ -128,6 +128,7 @@ describe('types', () => {
       expect(dontShoutSentence('HELLO NORTHCODERS!!!')).to.equal('Hello northcoders!!!');
     });
   });
+
   
   describe('getMiddle', () => {
     it('returns the middle character of an odd length string', () => {  
@@ -138,6 +139,7 @@ describe('types', () => {
     });
   });
   
+
   describe('getLastWord', () => {
     it('returns the last word of the passed sentence', () => {
       expect(getLastWord('hello')).to.equal('hello');
