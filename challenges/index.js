@@ -208,33 +208,45 @@ function flattenArray (arrayOfArrays) {
 
 function isItemOmnipresent (arrayOfArrays, item) {
     // return true if the passed item is present in all the arrays inside arrayOfArrays
+    let itemOmnipresent = ''
     for (let i = 0; i < arrayOfArrays.length; i++) {
-       // for (let j = 0; arrayOfArrays[i].length; j++) {
-            if (arrayOfArrays[i].includes(item)) {
-                return true
-            } 
-            else {
-                return false
-            }
+        if (arrayOfArrays[i].includes(item)) {
+            itemOmnipresent = true
+        } 
+        else {
+            return false
         }
-    }
+    } 
+    return itemOmnipresent
+}
 
   
 function isOver40 (user) {
     /*
     This function takes a user object with a property of age. It should return true if the user is over 40 and false if the user is 40 or younger.
     */
-}
+   if (user.age > 40) {
+       return true
+   } else {
+       return false
+   }
+} 
   
 function getUserAge (user) {
     // return the user's age as a number.
     // you can assume that the passed user will always have a 'yearOfBirth' property.
+    let yearOfBirth = user.yearOfBirth
+    let age = 2018 - yearOfBirth
+    return age
 }
   
 function createProduct () {
     /*
-    This function should return an object with a type property and a price property. The value for type can be any string, and the value for price should be a number.
+    This function should return an object with a type property and a price property. The value for type can be any string, 
+    and the value for price should be a number.
     */
+   return {type: 'pasta', price: 34}
+   
 }
   
 function addPriceToProduct (product, price) {
@@ -242,6 +254,8 @@ function addPriceToProduct (product, price) {
     { type: 'Tofu slices' }
     Add a price property to this object and set its value to the price passed in as an argument. Then return the object.
     */
+   product.price = price
+   return product
 }
   
 function createNorthcoder (name, yearOfBirth) {
@@ -249,19 +263,23 @@ function createNorthcoder (name, yearOfBirth) {
     // a name property set to the value of the name parameter
     // an age property set to whatever the age of the northcoder would be on the year 2018
     // a language property set to 'JavaScript'
+    return {name: name, age: (2017 - yearOfBirth), language: 'JavaScript'}
 }
   
 function createUserString (userObj) {
     // should take as an argument an object with the format from createNorthcoder
     // returns a string with the user's details in the form:
     // 'name: Mitch, age: 27, language: Javascript';
-    // Note - this is a good use case of string template literals. 
+    // Note - this is a good use case of string template literals
+    var userString = 'name: ' + userObj.name + ', age: ' + userObj.age + ', language: ' + userObj.language
+    return userString
 }
   
 function getAlbumProperties (obj) {
     // should take an object with information about an album
     // should return an array containing all of the object's keys
     // E.g. {a: 'foo', b: 'car', c: 'bar'} should return ['a', 'b', 'c']
+    return Object.keys(obj)
 }
   
 function deleteManyPasswords (users) {
@@ -280,13 +298,31 @@ function deleteManyPasswords (users) {
       {name: 'Kavita'}
     ]
     */
+   for (let i = 0; i <users.length; i++) {
+       delete users[i].password
+   }
+   return users
 }
   
 function countTheObjects (arr) {
     /*
     This function takes an array of different data types. It should return a count of the number of objects in the array.
-    NB, think carefully about how to test if something is an object! Arrays are technically types of objects in JavaScript, as is the value null. However these should not be counted.
+    NB, think carefully about how to test if something is an object! Arrays are technically types of objects in JavaScript,
+    as is the value null. However these should not be counted.
     */
+   console.log(arr)
+   let count = 0
+   let objects = []
+   //let stringOfArr = JSON.stringify(arr)
+   for (let i = 0; i < arr.length; i++) {
+       if (typeof arr[i] === 'object' && arr[i] !== null) {
+           count += 1
+           objects.push(arr[i])
+       }
+   }
+   console.log(objects)
+   console.log(count)
+   return count
 }
   
 module.exports = {
