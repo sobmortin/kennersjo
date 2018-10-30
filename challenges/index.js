@@ -310,18 +310,12 @@ function countTheObjects (arr) {
     NB, think carefully about how to test if something is an object! Arrays are technically types of objects in JavaScript,
     as is the value null. However these should not be counted.
     */
-   console.log(arr)
    let count = 0
-   let objects = []
-   //let stringOfArr = JSON.stringify(arr)
    for (let i = 0; i < arr.length; i++) {
-       if (typeof arr[i] === 'object' && arr[i] !== null) {
+        if (typeof arr[i] === 'object' && arr[i] !== null && Array.isArray(arr[i]) != true) {
            count += 1
-           objects.push(arr[i])
-       }
+        }
    }
-   console.log(objects)
-   console.log(count)
    return count
 }
   
